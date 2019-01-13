@@ -9,7 +9,9 @@ class App extends Component {
     };
 
     window.navigator.geolocation.getCurrentPosition(
-      (position) => console.log(position),
+      (position) => {
+        this.setState({latitude: position.coords.latitude})
+      },
       (error) => console.log(error)
     )
   }

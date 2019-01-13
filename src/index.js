@@ -5,21 +5,33 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude: null
+      latitude: null,
+      errorMessage: ''
     };
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({latitude: position.coords.latitude})
       },
-      (error) => console.log(error)
+      (error) => {
+        this.setState({errorMessage: error.message})
+      }
     )
   }
 
   render() {
-
     return (
-      <div>Latitude: {this.state.latitude}</div>
+      <div>
+        {(!this.state.latitude && this.state.errorMessage) &&
+          <div>Error: {this.state.errorMessage}</div>
+        }
+
+        {(!this.state.errorMessage && this.state.latitude) && 
+          <div>Latitude: {this.state.latitude}</div>
+        }
+          
+        {(!this.state.latitude && !this.state.errorMessage) && <div>Loading...</div>}
+      </div>
     )
   }
 }

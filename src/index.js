@@ -7,13 +7,14 @@ class App extends Component {
     this.state = {
       latitude: null
     };
-  }
-  
-  render() {
+
     window.navigator.geolocation.getCurrentPosition(
       (position) => console.log(position),
       (error) => console.log(error)
     )
+  }
+
+  render() {
 
     return (
       <div>Latitude: {this.state.latitude}</div>

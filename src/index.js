@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      Hi There!
+      Hi There! This is working!
       <SeasonDisplay />
     </div>
   )

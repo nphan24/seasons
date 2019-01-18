@@ -14,10 +14,6 @@ class App extends Component {
     )
   }
 
-  componentDidUpdate() {
-    console.log('just updated')
-  }
-
   render() {
     return (
       <div>
@@ -26,7 +22,7 @@ class App extends Component {
         }
 
         {(!this.state.errorMessage && this.state.latitude) && 
-          <div>Latitude: {this.state.latitude}</div>
+          <div><SeasonDisplay latitude={this.state.latitude}/></div>
         }
           
         {(!this.state.latitude && !this.state.errorMessage) && <div>Loading...</div>}

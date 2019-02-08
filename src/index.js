@@ -15,20 +15,28 @@ class App extends Component {
     )
   }
 
-  render() {
+  renderContent() {
     return (
       <div>
         {(!this.state.latitude && this.state.errorMessage) &&
           <div>Error: {this.state.errorMessage}</div>
         }
 
-        {(!this.state.errorMessage && this.state.latitude) && 
-          <div><SeasonDisplay latitude={this.state.latitude}/></div>
+        {(!this.state.errorMessage && this.state.latitude) &&
+          <div><SeasonDisplay latitude={this.state.latitude} /></div>
         }
-          
+
         {(!this.state.latitude && !this.state.errorMessage) && <div>
           <Loading message='Please accept location request' />
         </div>}
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className='border'>
+        {this.renderContent()}
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Loading from './Loading';
 class App extends Component {
   state = {
       latitude: null,
@@ -25,7 +26,9 @@ class App extends Component {
           <div><SeasonDisplay latitude={this.state.latitude}/></div>
         }
           
-        {(!this.state.latitude && !this.state.errorMessage) && <div>Loading...</div>}
+        {(!this.state.latitude && !this.state.errorMessage) && <div>
+          <Loading message='Please accept location request' />
+        </div>}
       </div>
     )
   }

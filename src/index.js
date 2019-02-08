@@ -25,7 +25,11 @@ class App extends Component {
           <div><SeasonDisplay latitude={this.state.latitude}/></div>
         }
           
-        {(!this.state.latitude && !this.state.errorMessage) && <div>Loading...</div>}
+        {(!this.state.latitude && !this.state.errorMessage) && <div>
+          <div class="ui active dimmer">
+            <div class="ui text loader">Loading...</div>
+          </div>
+        </div>}
       </div>
     )
   }
